@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 21:16:48 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/19 17:27:26 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/03/21 16:57:09 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "./contact.hpp"
 #include "./phonebook.hpp"
+#include <cstdlib>
 //---------------------------
 bool isNumeric(const std::string str) {
     for (int i = 0; i < (int)str.length(); i++) {
@@ -90,12 +91,12 @@ void  search_function(Phonebook *_book)
   std::cout << "   ENTER INDEX : " << std::endl;
   while(1)
   {
-      if(!std::getline(std::cin, line) || !isNumeric(line))
+      if(!std::getline(std::cin, line) || !isNumeric(line) || line.empty())
       {
         std::cout << "      (BAD INDEX)  " << std::endl;
         break;
       }
-      if(_book->getCntLen() == 0 || (std::stoi(line) > _book->getCntLen() - 1))
+      else if(_book->getCntLen() == 0 || (std::atoi(line.c_str()) > _book->getCntLen() - 1))
       {
              
         std::cout << "      (EMPTY PHONEBOOK OR INVALID INDEX)  " << std::endl;
@@ -103,7 +104,7 @@ void  search_function(Phonebook *_book)
       }
       else
       {
-        _book->getOne(std::stoi(line));
+        _book->getOne(std::atoi(line.c_str()));
         break;
       }
   }
@@ -120,7 +121,7 @@ int main(void)
     {
          std::cout << "--------> ENTER ADD, SEARCH OR EXIT <--------" << std::endl;
        if(!std::getline(std::cin, line))
-        return(0);
+          return(0);
       //------------------------------------- add
        if(line.compare("ADD") == 0)
        {
