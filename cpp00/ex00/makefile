@@ -1,13 +1,29 @@
-CPPFLAGS = -std=c++98 -Wall -Wextra -Werror
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/03/24 17:15:23 by abellakr          #+#    #+#              #
+#    Updated: 2023/03/24 17:18:27 by abellakr         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
+
 
 NAME = megaphone
 CC = c++
 SRCS = ./megaphone.cpp
 
 OBJS = $(SRCS:.cpp=.o)
-	
+
+%.o: %.cpp Fixed.hpp
+	$(CC) $(CXXFLAGS) -c $< -o $@
+
 $(NAME): $(OBJS)
-	$(CC) $(CPPFLAGS) $^ -o $@
+	$(CC) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	rm -f $(OBJS)
