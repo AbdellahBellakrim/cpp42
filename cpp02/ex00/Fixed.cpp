@@ -6,15 +6,16 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:01:14 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/23 21:45:36 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/03/24 13:26:28 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
+int const Fixed::fractional = 8;
 Fixed::Fixed() 
 {
-    fixed_point = 0;
+    fpValue = 0;
     std::cout << "Default constructor called" << std::endl;
 }
 
@@ -32,18 +33,18 @@ Fixed::Fixed(Fixed const &newObj)
 Fixed& Fixed::operator=(const Fixed& obj)
 {
     std::cout << "Copy assignment operator called" << std::endl;
-    this->fixed_point = obj.getRawBits();
+    this->fpValue = obj.getRawBits();
     return *this;
 }
 
 int Fixed::getRawBits() const
 {
     std::cout << "getRawBits member function called" << std::endl;
-    return this->fixed_point;
+    return this->fpValue;
 }
 
 void Fixed::setRawBits(int const raw)
 {
     std::cout << "setRawbits member function called" << std::endl;
-    this->fixed_point = raw;
+    this->fpValue = raw;
 }

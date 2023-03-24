@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/23 16:56:31 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/24 13:25:38 by abellakr         ###   ########.fr       */
+/*   Created: 2023/03/24 00:45:28 by abellakr          #+#    #+#             */
+/*   Updated: 2023/03/24 15:44:56 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #define FIXED_HPP
 
 #include <iostream>
+#include <ostream>
+#include <cmath>
+
 
 class Fixed {
 
@@ -25,8 +28,19 @@ class Fixed {
         Fixed();
         ~Fixed();
         Fixed(Fixed const &newObj);// copy constractor
-        Fixed& operator=(const Fixed& obj);// copy assignement overload
+        Fixed& operator=(const Fixed& obj);// copy assignement overload =
         int getRawBits( void ) const;
         void setRawBits(int const raw);
+        
+
+        //--------------------------------------------- add those functions
+        Fixed(const int number);// constractor int 
+        Fixed(const float number);// constractor float
+
+        float toFloat(void) const; 
+        int toInt(void) const;
+
+        
 };
+    std::ostream & operator<< (std::ostream & output, const Fixed& obj); // copy overload <<
 #endif
