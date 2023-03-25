@@ -6,12 +6,12 @@
 #    By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/21 21:13:39 by abellakr          #+#    #+#              #
-#    Updated: 2023/03/21 21:13:41 by abellakr         ###   ########.fr        #
+#    Updated: 2023/03/25 13:54:29 by abellakr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-CPPFLAGS = -std=c++98 -Wall -Wextra -Werror
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 NAME = HithisisBrain
 CC = c++
@@ -19,8 +19,11 @@ SRCS = ./main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 	
+%.o: %.cpp
+	$(CC) $(CXXFLAGS) -c $< -o $@
+
 $(NAME): $(OBJS)
-	$(CC) $(CPPFLAGS) $^ -o $@
+	$(CC) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	rm -f $(OBJS)

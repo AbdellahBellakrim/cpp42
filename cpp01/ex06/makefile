@@ -6,11 +6,11 @@
 #    By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/23 13:38:03 by abellakr          #+#    #+#              #
-#    Updated: 2023/03/23 13:48:39 by abellakr         ###   ########.fr        #
+#    Updated: 2023/03/25 13:57:07 by abellakr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CPPFLAGS = -std=c++98 -Wall -Wextra -Werror
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 NAME = harlFilter
 CC = c++
@@ -18,8 +18,11 @@ SRCS = ./main.cpp ./Harl.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 	
+%.o: %.cpp
+	$(CC) $(CXXFLAGS) -c $< -o $@
+
 $(NAME): $(OBJS)
-	$(CC) $(CPPFLAGS) $^ -o $@
+	$(CC) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	rm -f $(OBJS)

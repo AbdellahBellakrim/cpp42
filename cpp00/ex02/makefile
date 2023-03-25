@@ -6,7 +6,7 @@
 #    By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/24 17:17:14 by abellakr          #+#    #+#              #
-#    Updated: 2023/03/24 17:18:38 by abellakr         ###   ########.fr        #
+#    Updated: 2023/03/25 13:49:46 by abellakr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS = ./tests.cpp ./Account.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-%.o: %.cpp Fixed.hpp
+%.o: %.cpp
 	$(CC) $(CXXFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
