@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 17:28:03 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/25 04:29:34 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/03/25 17:41:17 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,8 +152,58 @@ Fixed Fixed::operator/(const Fixed& obj)
     return(Fixed((this->fpValue / (float)(1 << 8)) / (obj.fpValue / (float)(1 << 8))));
 }
 //---------------------------------------------------------------
+// 8 and 9 and 10 and 11 : decrement and increment post and pre
 Fixed& Fixed::operator++()
 {
     this->fpValue++;
     return(*this);
+}
+
+Fixed Fixed::operator++(int)
+{
+    Fixed tmp(*this);
+    this->fpValue++;
+    return(tmp);
+}
+
+Fixed& Fixed::operator--()
+{
+    this->fpValue--;
+    return(*this);
+}
+
+Fixed Fixed::operator--(int)
+{
+    Fixed tmp(*this);
+    this->fpValue--;
+    return(tmp);
+}
+
+//----------------------------------------------------
+// 12 - 13 -14 - 15 : min and max
+Fixed& Fixed::min(Fixed& nb1, Fixed& nb2)
+{
+    if(nb1 < nb2)
+        return(nb1);
+    return(nb2);
+}
+
+Fixed const& Fixed::min(const Fixed& nb1, const Fixed& nb2)
+{
+    if(nb1.fpValue < nb2.fpValue)
+        return(nb1);
+    return(nb2);
+}
+
+Fixed& Fixed::max(Fixed& nb1, Fixed& nb2)
+{
+    if(nb1 > nb2)
+        return(nb1);
+    return(nb2);
+}
+Fixed const& Fixed::max(const Fixed& nb1, const Fixed& nb2)
+{
+    if(nb1.fpValue > nb2.fpValue)
+        return(nb1);
+    return(nb2);
 }

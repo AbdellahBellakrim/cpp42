@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 17:28:01 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/25 04:07:42 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/03/25 17:56:37 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,15 @@ class Fixed {
         Fixed operator*(const Fixed& obj);
         Fixed operator/(const Fixed& obj);
        // 3- increment decrement operetor overload :
-       Fixed& operator++(void);
-    //    Fixed operator++(int number);
+       Fixed& operator++();
+       Fixed operator++(int);
+       Fixed& operator--();
+       Fixed operator--(int);
+        // 4- overload functions for min and max
+       static Fixed& min(Fixed& nb1, Fixed& nb2);
+       static Fixed const& min(const Fixed&  nb1, const Fixed&  nb2);
+       static Fixed& max(Fixed& nb1, Fixed& nb2);
+       static Fixed const& max(const Fixed&  nb1, const Fixed&  nb2);
 };
     std::ostream & operator<< (std::ostream & output, const Fixed& obj); // copy overload <<
 #endif
