@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 15:18:52 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/26 15:54:46 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/03/26 17:13:02 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,10 @@ class ClapTrap {
         void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
+
+        std::string getname();
+        int getHitPoints();
+        int getEnergyPoints();
+        int getattackDamege();
 };
 #endif
