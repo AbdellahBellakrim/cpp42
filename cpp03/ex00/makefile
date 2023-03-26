@@ -6,7 +6,7 @@
 #    By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/26 16:47:50 by abellakr          #+#    #+#              #
-#    Updated: 2023/03/26 16:47:51 by abellakr         ###   ########.fr        #
+#    Updated: 2023/03/26 17:36:47 by abellakr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS = ./main.cpp ./ClapTrap.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-%.o: %.cpp Fixed.hpp
+%.o: %.cpp *.hpp
 	$(CC) $(CXXFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
