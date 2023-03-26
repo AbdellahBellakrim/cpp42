@@ -1,14 +1,16 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/23 16:55:07 by abellakr          #+#    #+#              #
-#    Updated: 2023/03/24 00:43:40 by abellakr         ###   ########.fr        #
+#    Created: 2023/03/26 17:42:27 by abellakr          #+#    #+#              #
+#    Updated: 2023/03/26 17:42:46 by abellakr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+
 
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 
@@ -18,7 +20,7 @@ SRCS = ./main.cpp ./Fixed.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-%.o: %.cpp Fixed.hpp
+%.o: %.cpp *.hpp
 	$(CC) $(CXXFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)

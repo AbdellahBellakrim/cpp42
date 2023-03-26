@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/25 21:35:32 by abellakr          #+#    #+#              #
-#    Updated: 2023/03/25 21:36:06 by abellakr         ###   ########.fr        #
+#    Created: 2023/03/26 17:43:27 by abellakr          #+#    #+#              #
+#    Updated: 2023/03/26 17:43:29 by abellakr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS = ./main.cpp ./Fixed.cpp Point.cpp bsp.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-%.o: %.cpp Fixed.hpp
+%.o: %.cpp *.hpp
 	$(CC) $(CXXFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
