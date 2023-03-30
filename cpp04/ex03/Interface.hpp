@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 02:29:28 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/30 03:13:11 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/03/30 03:54:36 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class AMateria
         std::string Type;
     public:
         AMateria(std::string const & type); // parameter constructor
+        AMateria(const AMateria & newObj); //copy constractor 
         std::string const & getType() const; //Returns the materia type
         virtual AMateria* clone() const = 0; // override darori !!!!!!!!!!!!!!!!!!!!!!!
         virtual void use(ICharacter& target);// override machi darori walkin momkin n overidi

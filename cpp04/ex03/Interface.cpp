@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 03:02:02 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/30 03:29:01 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/03/30 03:59:03 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ std::string const & AMateria::getType() const
 {
     return this->Type;
 }
-
+AMateria::AMateria(const AMateria &newObj)
+{
+    *this = newObj;
+}
 //////////////////////////////////////
 //  class Ice :
 //////////////////////////////////////
@@ -54,7 +57,8 @@ Ice& Ice::operator=(const Ice& newObj)
 
 AMateria* Ice::clone() const
 {
-    // some HERE
+    AMateria *newObj = new AMateria(this); // problem here 
+    return (newObj);
 }
 
 void Ice::use(ICharacter& target)
@@ -65,35 +69,35 @@ void Ice::use(ICharacter& target)
 //////////////////////////////////////
 //  class Cure :
 //////////////////////////////////////
-Cure::Cure()
-{
-    std::cout <<  "Cure constructor called" << std::endl;
-    this->Type = "cure";
-}
+// Cure::Cure()
+// {
+//     std::cout <<  "Cure constructor called" << std::endl;
+//     this->Type = "cure";
+// }
 
-Cure::~Cure()
-{
-    std::cout <<  "Cure destructor called" << std::endl;
-}
+// Cure::~Cure()
+// {
+//     std::cout <<  "Cure destructor called" << std::endl;
+// }
 
-Cure::Cure(const Cure& newObj)
-{
-    std::cout <<  "Cure copy constructor called" << std::endl;
-    *this = newObj;
-}
+// Cure::Cure(const Cure& newObj)
+// {
+//     std::cout <<  "Cure copy constructor called" << std::endl;
+//     *this = newObj;
+// }
 
-Cure& Cure::operator=(const Cure& newObj)
-{
-    this->Type = newObj.Type;
-     return *this;
-}
+// Cure& Cure::operator=(const Cure& newObj)
+// {
+//     this->Type = newObj.Type;
+//      return *this;
+// }
 
-AMateria* Cure::clone() const
-{
-    /// something here 
-}
+// AMateria* Cure::clone() const
+// {
+//     /// something here 
+// }
 
-void Cure::use(ICharacter& target)
-{
-    std::cout <<  "* heals " << target.getName() << "’s wounds *" << std::endl;
-}
+// void Cure::use(ICharacter& target)
+// {
+//     std::cout <<  "* heals " << target.getName() << "’s wounds *" << std::endl;
+// }
