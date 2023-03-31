@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 23:35:09 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/30 23:42:53 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/03/31 15:50:40 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@
 //////////////////////////////////////
 Ice::Ice()
 {
-    std::cout <<  "Ice constructor called" << std::endl;
+    // std::cout <<  "Ice constructor called" << std::endl;
     this->Type = "ice";
 }
 
 Ice::~Ice()
 {
-    std::cout <<  "Ice destructor called" << std::endl;
+    // std::cout <<  "Ice destructor called" << std::endl;
 }
 
 Ice::Ice(const Ice& newObj)
 {
-    std::cout <<  "Ice copy constructor called" << std::endl;
+    // std::cout <<  "Ice copy constructor called" << std::endl;
     *this = newObj;
 }
 
@@ -40,8 +40,7 @@ Ice& Ice::operator=(const Ice& newObj)
 
 AMateria* Ice::clone() const
 {
-    AMateria *newObj = new Ice();
-    return (newObj);
+    return (new Ice());
 }
 
 void Ice::use(ICharacter& target)

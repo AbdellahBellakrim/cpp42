@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 00:41:58 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/31 02:56:02 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/03/31 15:17:50 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Character::~Character()
     for (int i = 0; i < 4 ; i++)
     {
         if(slots[i] != NULL)
-            slots[i] = NULL;
+            delete  slots[i];
     } 
 }
 
@@ -43,12 +43,16 @@ Character::Character(const Character& newObj)
 
 Character& Character::operator=(const Character& newObj)
 {
+
     name = newObj.name;
     for (int i = 0; i < 4 ; i++)
     {
         if(slots[i] != NULL)
+            delete slots[i];
+        if(newObj.slots[i] != NULL)
+            slots[i] = newObj.slots[i]->clone();
+        else 
             slots[i] = NULL;
-        slots[i] = newObj.slots[i];
     }
     return *this;
 }
@@ -61,22 +65,33 @@ std::string const& Character::getName() const
 
 void Character::equip(AMateria* m)
 {
-    for (int i = 0; i < 4 ; i++)
+    if(m)
     {
-        if(slots[i] == NULL)
+        for (int i = 0; i < 4 ; i++)
         {
-            slots[i] = m;
-            break;
-        }
+            if(slots[i] == NULL)
+            {
+                slots[i] = m->clone();
+                break;
+            }
+        }      
+        delete m;
     }
 }
 
 void   Character::unequip(int idx)
 {
-    this->slots[idx] = NULL;
+    if(slots[idx] != NULL)
+    {
+        delete this->slots[idx];
+        slots[idx] = NULL;
+    }
 }
 
 void Character::use(int idx, ICharacter& target)
 {
-    slots[idx]->use(target);
+    if(slots[idx] == NULL || (idx < 0 || idx > 3))
+        std::cout << "You can't use that slot." << std::endl;
+    else
+        slots[idx]->use(target);
 }

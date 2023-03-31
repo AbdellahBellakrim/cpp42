@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 23:32:39 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/31 02:40:08 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/03/31 14:59:57 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class AMateria
         std::string Type;
     public:
         AMateria();
-        ~AMateria(); 
+        virtual ~AMateria(); 
         AMateria(const AMateria & newObj);
         AMateria& operator=(const AMateria& newObj);
 
