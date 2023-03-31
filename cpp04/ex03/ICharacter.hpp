@@ -6,15 +6,16 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 00:33:14 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/31 02:02:53 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/03/31 02:41:02 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 #define ICHARACTER_HPP
-
-#include <iostream>
 #include "AMateria.hpp"
+#include <iostream>
+
+class AMateria;
 
 class ICharacter
 {

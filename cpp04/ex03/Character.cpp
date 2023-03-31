@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 00:41:58 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/31 01:42:04 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/03/31 02:56:02 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Character::~Character()
     for (int i = 0; i < 4 ; i++)
     {
         if(slots[i] != NULL)
-            slots[i] == NULL;
+            slots[i] = NULL;
     } 
 }
 
@@ -47,10 +47,10 @@ Character& Character::operator=(const Character& newObj)
     for (int i = 0; i < 4 ; i++)
     {
         if(slots[i] != NULL)
-            slots[i] == NULL;
+            slots[i] = NULL;
         slots[i] = newObj.slots[i];
     }
-    
+    return *this;
 }
 // overload functions
 

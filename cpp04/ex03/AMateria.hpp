@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 23:32:39 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/31 01:57:04 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/03/31 02:40:08 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <iostream>
 #include "ICharacter.hpp"
 
+class ICharacter ;
 /////////////////////////////////////////
 ///// Abstract class Amateria
 ///////////////////////////////////////

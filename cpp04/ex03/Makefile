@@ -6,7 +6,7 @@
 #    By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 18:00:22 by abellakr          #+#    #+#              #
-#    Updated: 2023/03/31 01:42:56 by abellakr         ###   ########.fr        #
+#    Updated: 2023/03/31 02:56:37 by abellakr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 NAME = a.out
 CC = c++
-SRCS = ./main.cpp ./AMateria.cpp ./Cure.cpp ./Ice.cpp ./Character.cpp ./ICharacter.cpp
+SRCS = ./main.cpp ./AMateria.cpp ./Cure.cpp ./Ice.cpp ./Character.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
