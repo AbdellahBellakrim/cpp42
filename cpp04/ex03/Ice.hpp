@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 16:50:12 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/31 02:05:04 by abellakr         ###   ########.fr       */
+/*   Created: 2023/03/30 23:33:48 by abellakr          #+#    #+#             */
+/*   Updated: 2023/03/31 02:01:14 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cure.hpp"
-#include "Ice.hpp"
+#ifndef ICE_HPP
+#define ICE_HPP
 
-int main()
+#include "AMateria.hpp"
+
+/////////////////////////////////////////
+///// Ice class
+///////////////////////////////////////
+class Ice : public AMateria
 {
-    Ice var;
+    public:
+        Ice();
+        ~Ice();
+        Ice(const Ice& newObj);
+        Ice& operator=(const Ice& newObj);
 
-    std::cout << var.getType() << std::endl;
-    return 0;
-}
+        AMateria* clone() const;
+        void use(ICharacter& target);
+};
+#endif
