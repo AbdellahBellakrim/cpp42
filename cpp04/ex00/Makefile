@@ -6,7 +6,7 @@
 #    By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 18:00:22 by abellakr          #+#    #+#              #
-#    Updated: 2023/03/28 23:12:48 by abellakr         ###   ########.fr        #
+#    Updated: 2023/03/31 16:35:57 by abellakr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 NAME = a.out
 CC = c++
-SRCS = ./main.cpp ./Animal.cpp ./WrongAnimal.cpp
+SRCS = ./main.cpp ./Animal.cpp ./WrongAnimal.cpp ./Dog.cpp ./Cat.cpp ./WrongCat.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

@@ -30,17 +30,4 @@ class WrongAnimal{
         std::string type;
 };
 
-
-class WrongCat : public WrongAnimal
-{
-    public:
-        WrongCat();
-        ~WrongCat();
-        WrongCat(const WrongCat& newObj);
-        WrongCat& operator=(const WrongCat& obj);
-
-        void makeVoice() const; 
-
-};
-
 #endif

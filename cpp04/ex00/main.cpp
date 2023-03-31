@@ -6,12 +6,14 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 17:53:14 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/28 23:24:49 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/03/31 16:35:11 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "WrongAnimal.hpp"
+
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "WrongCat.hpp"
 
 int main()
 {

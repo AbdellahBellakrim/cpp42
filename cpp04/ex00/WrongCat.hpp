@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/28 17:53:14 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/31 16:56:30 by abellakr         ###   ########.fr       */
+/*   Created: 2023/03/31 16:32:52 by abellakr          #+#    #+#             */
+/*   Updated: 2023/03/31 16:34:30 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
-int main()
-{   
+#include "WrongAnimal.hpp"
 
-    Dog dog1;
-    std::cout << "--------------------------------------\n";
-    Dog dog2;
-    std::cout << "--------------------------------------\n";
-    dog2 = dog1;
-    std::cout << "--------------------------------------\n";
+class WrongAnimal;
 
-    
-    return 0;
-}
+class WrongCat : public WrongAnimal
+{
+    public:
+        WrongCat();
+        ~WrongCat();
+        WrongCat(const WrongCat& newObj);
+        WrongCat& operator=(const WrongCat& obj);
 
+        void makeVoice() const; 
+
+};
+#endif

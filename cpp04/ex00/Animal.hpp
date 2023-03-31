@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:13:37 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/28 21:44:47 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/03/31 16:14:03 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,25 +28,5 @@ class Animal
         virtual void makeSound() const;
 };
 
-
-class Dog : public Animal
-{
-    public:
-        Dog();
-        ~Dog();
-        Dog(const Dog& newObj);
-        Dog& operator=(const Dog& newObj);
-        void makeSound()const;
-};
-
-class Cat : public Animal
-{
-    public:
-        Cat();
-        ~Cat();
-        Cat(const Cat& newObj);
-        Cat& operator=(const Cat& newObj);
-        void makeSound()const;
-};
 
 #endif

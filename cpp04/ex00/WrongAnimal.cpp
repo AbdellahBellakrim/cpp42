@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 22:02:37 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/28 23:22:14 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/03/31 16:32:43 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,33 +42,4 @@ void WrongAnimal::makeVoice(void)const
 std::string WrongAnimal::getType() const
 {
     return (this->type);
-}
-
-//////////////////////////////////
-
-WrongCat::WrongCat()
-{
-    this->type = "WrongCat";
-    std::cout << "Wrong Cat constractor called" << std::endl;
-}
-
-WrongCat::~WrongCat()
-{
-    std::cout << "Wrong Cat destructor called" << std::endl;
-}
-
-WrongCat::WrongCat(const WrongCat& newObj)
-{
-    *this = newObj;
-}
-
-WrongCat& WrongCat::operator=(const WrongCat& newObj)
-{
-    this->type = newObj.type;
-    return (*this);
-}
-
-void WrongCat::makeVoice(void)const
-{
-    std::cout << "WrongCat sound!!!!" << std::endl;
 }

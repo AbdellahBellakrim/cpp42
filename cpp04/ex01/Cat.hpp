@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/28 17:53:14 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/31 16:56:30 by abellakr         ###   ########.fr       */
+/*   Created: 2023/03/31 16:44:01 by abellakr          #+#    #+#             */
+/*   Updated: 2023/03/31 16:45:34 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
+#ifndef CAT_HPP
+#define CAT_HPP
 
-int main()
-{   
+#include "Animal.hpp"
 
-    Dog dog1;
-    std::cout << "--------------------------------------\n";
-    Dog dog2;
-    std::cout << "--------------------------------------\n";
-    dog2 = dog1;
-    std::cout << "--------------------------------------\n";
+class Animal;
 
-    
-    return 0;
-}
-
+class Cat : public Animal
+{
+    public:
+        Cat();
+        ~Cat();
+        Cat(const Cat& newObj);
+        Cat& operator=(const Cat& newObj);
+        void makeSound()const;
+        void getBrainIdeas() const;
+    private:
+        Brain *_Brain;
+};
+#endif
