@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 00:41:58 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/31 15:17:50 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/01 22:01:17 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void Character::equip(AMateria* m)
 
 void   Character::unequip(int idx)
 {
-    if(slots[idx] != NULL)
+    if( (idx >= 0 && idx <= 3) && slots[idx] != NULL)
     {
         delete this->slots[idx];
         slots[idx] = NULL;
