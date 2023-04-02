@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 17:53:14 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/02 01:40:59 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/02 07:07:10 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "WrongCat.hpp"
+
 
 int main()
 {
@@ -41,7 +42,7 @@ int main()
     
     riri->makeVoice();
     a->makeVoice();
-   lili->makeVoice();
+    lili->makeVoice();
 
     delete riri;
     delete a;

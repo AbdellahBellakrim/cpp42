@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 16:10:15 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/02 00:59:01 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/02 07:02:36 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ Cat::~Cat()
 
 Cat::Cat(const Cat& newObj)
 {
-    *this =  newObj;
+    *this = newObj;
 }
 
 Cat& Cat::operator=(const Cat& newObj)
 {
-    this->type = newObj.type;
+    (void)newObj;
     return (*this);
 }
 

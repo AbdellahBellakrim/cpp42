@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 16:51:12 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/31 16:52:10 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/02 07:22:11 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ Dog::~Dog()
 
 Dog::Dog(const Dog& newObj)
 {
+    this->_Brain = new Brain();
     *this =  newObj;
 }
 

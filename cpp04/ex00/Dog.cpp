@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 16:12:54 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/02 00:58:42 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/02 07:01:50 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Dog::Dog(const Dog& newObj)
 
 Dog& Dog::operator=(const Dog& newObj)
 {
-    this->type = newObj.type;
+    (void)newObj;
     return (*this);
 }
 

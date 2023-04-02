@@ -6,13 +6,15 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 17:53:14 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/31 16:46:44 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/02 18:41:55 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
+
+
 
 int main()
 {   
@@ -28,14 +30,12 @@ int main()
         delete array[i];
 
 
-    Dog dog1;
+    Dog dog1 = Dog();
     std::cout << "--------------------------------------\n";
-    Dog dog2;
+    Dog dog2 = Dog(dog1);
     std::cout << "--------------------------------------\n";
-
     dog2 = dog1;
-
-    
+    Dog dog3(dog1);
     return 0;
 }
 

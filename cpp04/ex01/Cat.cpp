@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 16:45:42 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/31 16:46:06 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/02 07:29:17 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,16 @@ Cat::~Cat()
 
 Cat::Cat(const Cat& newObj)
 {
+    this->_Brain = new Brain();
     *this =  newObj;
 }
 
 Cat& Cat::operator=(const Cat& newObj)
 {
-    this->type = newObj.type;
+    std::cout << "copy assignment operator Cat" << std::endl;
     if (this->_Brain)
         delete _Brain;
-    this->_Brain = new Brain();
-    this->_Brain = newObj._Brain;
+    this->_Brain = new Brain(*newObj._Brain);
     return (*this);
 }
 

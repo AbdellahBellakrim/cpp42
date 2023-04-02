@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 16:52:29 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/31 16:54:44 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/02 07:33:36 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ Cat::~Cat()
 
 Cat::Cat(const Cat& newObj)
 {
+    this->_Brain = new Brain();
     *this =  newObj;
 }
 
@@ -41,7 +42,7 @@ Cat& Cat::operator=(const Cat& newObj)
     if (this->_Brain)
         delete _Brain;
     this->_Brain = new Brain();
-    this->_Brain = newObj._Brain;
+    this->_Brain = new Brain(*newObj._Brain);
     return (*this);
 }
 
