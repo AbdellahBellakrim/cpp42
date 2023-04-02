@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 17:53:14 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/31 16:35:11 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/02 01:40:59 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,5 @@ int main()
     delete riri;
     delete a;
     delete lili;
-    
     return 0;
 }
