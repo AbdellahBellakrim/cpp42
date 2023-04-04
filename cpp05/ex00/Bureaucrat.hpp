@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 23:16:44 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/04 18:30:16 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/04 22:03:35 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ class Bureaucrat
         void incrementGrade();
         // function to decrement grade 
         void decrementGrade();
-        // << overload
         
 
     private: 
@@ -50,5 +49,6 @@ class Bureaucrat
         int grade;
         
 };
+        // << overload
     std::ostream & operator<< (std::ostream & output, Bureaucrat& Obj); // copy overload <<
 #endif

@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 00:45:25 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/04 21:56:20 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/04 22:09:16 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ Bureaucrat&  Bureaucrat::operator=(const Bureaucrat& newObj)
 // constractor parametrized
 Bureaucrat::Bureaucrat(std::string Name, int Grade) : name(Name)
 {
-    if(Grade >= 0 && Grade <= 150)
+    if(Grade > 0 && Grade <= 150)
         this->grade = Grade;
-    else if (Grade < 0)
+    else if (Grade < 1)
         throw GradeTooHighException();
     else if (Grade > 150)
         throw GradeTooLowException();
