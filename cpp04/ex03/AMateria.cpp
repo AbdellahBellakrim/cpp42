@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 03:02:02 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/31 02:54:56 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/05 07:22:29 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ AMateria::AMateria(const AMateria &newObj)
 AMateria& AMateria::operator=(const AMateria &newObj)
 {
     (void)newObj;
+    // this->Type = newObj.getType();
     return (*this);
 }
 AMateria::AMateria(std::string const & type)

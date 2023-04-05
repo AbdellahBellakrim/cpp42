@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 23:35:09 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/31 15:50:40 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/05 07:19:58 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ Ice::Ice(const Ice& newObj)
 Ice& Ice::operator=(const Ice& newObj)
 {
     this->Type = newObj.Type;
+    // (void)newObj;
      return *this;
 }
 

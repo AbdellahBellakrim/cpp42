@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 23:28:38 by abellakr          #+#    #+#             */
-/*   Updated: 2023/03/31 15:51:09 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/05 07:20:09 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ Cure::Cure(const Cure& newObj)
 Cure& Cure::operator=(const Cure& newObj)
 {
     this->Type = newObj.Type;
+    // (void)newObj;
      return *this;
 }
 

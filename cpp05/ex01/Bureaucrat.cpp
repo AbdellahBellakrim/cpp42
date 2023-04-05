@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 00:45:25 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/05 18:18:16 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/05 18:17:48 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 // default constractor
 Bureaucrat::Bureaucrat() : name("DefaultName") , grade(1)
 {
-    std::cout << "default constractor called" << std::endl;    
+    std::cout << "default Bureaucrat constractor called" << std::endl;    
 }
 
 // destractor
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "destractor called" << std::endl;    
+    std::cout << "Bureaucrat destractor called" << std::endl;    
 }
 
 // copy constractor
@@ -107,3 +107,13 @@ std::ostream & operator<< (std::ostream & output, Bureaucrat& Obj)
     return output;  
 }
 
+///////////////////////////////
+/// signForm function
+///////////////////////////////
+void Bureaucrat::SignForm(const Form& newObj)
+{
+    if(newObj.getSigned() == true)
+        std::cout << this->getName() << " signed " << newObj.getName() << std::endl;
+    else if(newObj.getSigned() == false)
+        std::cout << this->getName() << " couldn’t sign " << newObj.getName() << " beacause " << this->getGrade() << " Bureaucrat Grade is too low !" << std::endl;
+}
