@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 06:13:22 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/06 22:43:16 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/06 23:27:15 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void _main()
     AForm *ptr = NULL;
     try{
            per2 = new Intern();
-           ptr = per2->makeForm("PresidentialPardonFor", "dar");
+           ptr = per2->makeForm("PresidentialPardonForm", "dar");
     }
     catch(std::exception &e)
     {

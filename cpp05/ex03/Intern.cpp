@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 21:40:21 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/06 22:39:53 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/06 23:29:00 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,13 @@ AForm* Intern::makeForm(std::string FormName, std::string FormTarget)
 {
     AForm *newObj = NULL;
     std::string tab[3] = {"ShrubberyCreationForm" , "RobotomyRequestForm" , "PresidentialPardonForm"};
+    
     int i;
     for(i = 0; i < 3; i++)
     {
         if(FormName == tab[i])
             break;
     }
-    if(i == 3)
-        throw Myerror();
     switch (i)
     {
         case 0:
@@ -56,6 +55,8 @@ AForm* Intern::makeForm(std::string FormName, std::string FormTarget)
         case 2:
             newObj = new PresidentialPardonForm(FormTarget);
             break;
+        default :
+            throw Myerror();
     }
     std::cout << "Intern creates " << FormTarget << std::endl;
     return newObj;
