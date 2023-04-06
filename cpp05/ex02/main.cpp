@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 06:13:22 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/06 21:27:47 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/06 21:29:24 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,5 @@ void _main()
 int main()
 {
     _main();
-    system("leaks a.out");
+    // system("leaks a.out");
 }
