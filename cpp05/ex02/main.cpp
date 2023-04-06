@@ -6,75 +6,65 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 06:13:22 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/06 01:51:46 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/06 21:27:47 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 void _main()
 {
-    ////////////////////////////////////////
-    //// test from ex00
-    ///////////////////////////////////////
-    // Bureaucrat *ptr1 = new Bureaucrat();
-    // Bureaucrat *ptr2 = NULL;
-    // std::cout << *ptr1 << std::endl;   
-    // delete ptr1;
-    
-    // try
-    // {
-    //     ptr2 = new Bureaucrat("abdellah", 4);
-    //     std::cout << *ptr2 << std::endl;   
-    //     ptr2->decrementGrade();
-    //     std::cout << *ptr2 << std::endl;   
-    //     delete ptr2;
-    // }
-    // catch (std::exception &e)
-    // {
-    //     std::cerr << e.what() << std::endl;
-    // }
+    Bureaucrat *per = NULL;
+    AForm *class1 = NULL;
+    AForm *class2 = NULL;
+    AForm *class3 = NULL;
+    try{
+           per = new Bureaucrat ("abdellah", 1);
+           class1 = new ShrubberyCreationForm("dar");
+           class2 = new RobotomyRequestForm("lbit");
+           class3 = new PresidentialPardonForm("lcouzina");
 
-    /////////////////////////////////////
-    //// test from ex01
-    ////////////////////////////////////
-    // Bureaucrat *Abdellah = NULL;
-    // Form *AbdellahForm = NULL;
-    // try{
-    //         Abdellah = new Bureaucrat("abdellah", 144);
-    //         AbdellahForm = new Form("FormatAbdellah", false, 20, 10);
-    //         std::cout << *Abdellah << std::endl;
-    //         std::cout << "--------------------------------------------------------------------------------Form before signing : " << std::endl;
-    //         std::cout << *AbdellahForm << std::endl;
-    //         try{
-    //             AbdellahForm->beSigned(*Abdellah);
-                
-    //         }
-    //         catch(std::exception &e)
-    //         {
-    //             std::cerr << e.what() << std::endl;
-    //         }
-    //         std::cout << "---------------------------------------------------------------------------------Form after signing : " << std::endl;
-    //         std::cout << *AbdellahForm << std::endl;
-    //         std::cout << "---------------------------------------------------------------------------------signform info : " << std::endl;
-    //         Abdellah->SignForm(*AbdellahForm);
-
-    //     delete Abdellah;
-    //     delete AbdellahForm;
+            class1->beSigned(*per);
+            class2->beSigned(*per);
+            class3->beSigned(*per);
         
-    // }
-    // catch(std::exception &e)
-    // {
-    //     std::cerr << e.what() << std::endl;
-    // }
-    std::cout << "adfadh" << std::endl;
- 
+           class1->execute(*per);
+           class2->execute(*per);
+           class3->execute(*per);
+           
+            std::cout << "\n---------------------------------------------------\n";
+           per->executeForm(*class1);
+           per->executeForm(*class2);
+           per->executeForm(*class3);
+
+            std::cout << "\n---------------------------------------------------\n";
+           delete per;
+           delete class1;
+           delete class2;
+           delete class3;
+        
+    }
+    catch(std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+        if(per)
+           delete per;
+        if(class1)
+            delete class1;
+       if(class2)
+        delete class2;
+       if(class3)
+        delete class3; 
+    }
 }
 
 int main()
 {
     _main();
-    // system("leaks a.out");
+    system("leaks a.out");
 }

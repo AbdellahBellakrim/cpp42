@@ -6,7 +6,7 @@
 #    By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 19:49:09 by abellakr          #+#    #+#              #
-#    Updated: 2023/04/06 20:21:23 by abellakr         ###   ########.fr        #
+#    Updated: 2023/04/06 21:08:54 by abellakr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 NAME = a.out
 CC = c++
-SRCS = ./main.cpp ./Bureaucrat.cpp ./AForm.cpp ./ShrubberyCreationForm.cpp ./PresidentialPardonForm.cpp
+SRCS = ./main.cpp ./Bureaucrat.cpp ./AForm.cpp ./ShrubberyCreationForm.cpp ./PresidentialPardonForm.cpp ./RobotomyRequestForm.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

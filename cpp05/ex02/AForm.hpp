@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 20:02:01 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/06 18:33:45 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/06 21:19:20 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class AForm
                 std::string Target;
         public:
                 AForm();
-                ~AForm();
+                virtual ~AForm();
                 AForm(const AForm& newObj);
                 AForm&  operator=(const AForm& newObj);
                 // constractor paramerized 
