@@ -6,11 +6,11 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 18:30:04 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/08 09:51:03 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/08 14:40:53 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "MyCast.hpp"
+#include "ScalarConverter.hpp"
 
 ScalarConverter::ScalarConverter() // constractor
 {
@@ -41,106 +41,124 @@ ScalarConverter::ScalarConverter(std::string arg) // constractor parametrized
 }
 
 
-void ScalarConverter::parse()
+void ScalarConverter::parse() 
 {
     size_t found; // where find can find .
     int index = 0; // where to start searching
     static int dots = 0;
-    
 
-    
-    /// handle valid words
+    ////////////////////////////////////////
+    ////////////// valid words case ///////
+    ///////////////////////////////////////
     if(MainArg == "-inff" || MainArg == "+inff" || MainArg == "nanf")
-        type = "float";
+    {
+        MainArg.erase(MainArg.length() - 1);
+        type = "floatW";
+    }
     else if(MainArg == "-inf" || MainArg == "+inf" || MainArg == "nan")
-        type = "double";
-    //      check for numbers and non valid words 
+        type = "doubleW";
+        
+    ////////////////////////////////////////
+    ////////////// valid numbers case /////
+    ///////////////////////////////////////
     else
     {
-        // std::cout << MainArg << std::endl; // debug // -----------------------
-        // check if you have dots or not 
+        ////////////////////////////////////////////
+        ////// check if you have dot 
+        ///////////////////////////////////////////
         while((found = MainArg.find("." , index)) != std::string::npos)
         {
-            // std::cout << "found :" << found << "index:" << index << std::endl; // debug // --------------------
             index = found + 1;
             dots++;
-            
             if(dots > 1)
-            {
-                std::cout << "invalid param: to many dots" << std::endl;// debug // --------------------
-                exit(-1);
-            }
+                throw std::runtime_error("unvalid argument");
         }
+        ///////////////////////////////////////////////
+        //////// char int error case :
+        ///////////////////////////////////////////////
         if(dots == 0) // we have char or int or error
         {
             // check if it is char
-            
             if(MainArg.length() == 1 && MainArg[0] != '\t' && MainArg[0] != '\v' && MainArg[0] != '\n' && MainArg[0] != '\r' && MainArg[0] != '\f' && MainArg[0] != ' ')
-                std::cout << "we have char baby" << std::endl; // debug // --------------------
-                
+                type = "char";
+            else if(MainArg.length() == 1 && (MainArg[0] == '\t' || MainArg[0] == '\v' || MainArg[0] == '\n' || MainArg[0] == '\r' || MainArg[0] == '\f' || MainArg[0] == ' '))
+                throw std::runtime_error("unvalid argument");                
             // check if it is int 
-                
             else if(MainArg.length() > 1)
             {
-                std::cout << "we have int baby or error" << std::endl;// debug // --------------------
                 if((MainArg[0] != '+' && MainArg[0] != '-') && (MainArg[0] > 57 || MainArg[0] < 48))
-                {
-                    std::cout << "had int khari fih chi7aja machi digit : error1"  << std::endl;// debug // --------------------
-                    exit(-1);
-                }
-                    
+                    throw std::runtime_error("unvalid argument");                
                 for(size_t k = 1; k < MainArg.length();k++)    
                     if(MainArg[k] > 57 || MainArg[k] < 48)
-                    {
-                        std::cout << "had int khari fih chi7aja machi digit : error2"  << std::endl;// debug // --------------------
-                        exit(-1);
-                    }
-                std::cout << "mli wsltii lhna int nadii" << std::endl;// debug // --------------------
+                        throw std::runtime_error("unvalid argument");                
+                type = "int";
             }
-            // std::cout << "we have no dots baby "  << MainArg.length() << MainArg[0] << std::endl; // debug // --------------------                
         }
-        else if (dots == 1) // we have float or double or error
+        /////////////////////////////////// 
+        /////// double float error case:
+        ///////////////////////////////////
+        else if (dots == 1) 
         {
-            std::cout << "we have one dot" << std::endl;
-
-            
             if(MainArg.length() == 1)
-            {
-                    std::cout << "3ndk hi no9ta ya 7abibi maymknch " << std::endl;
-                    exit(1);
-            }
+                throw std::runtime_error("unvalid argument");                
             else
             {
                 if((MainArg[0] != '+' && MainArg[0] != '-') && (MainArg[0] > 57 || MainArg[0] < 48))
-                {
-                    std::cout << "had ra9m khari  : error3"  << std::endl;// debug // --------------------
-                    exit(-1);
-                }
-
+                    throw std::runtime_error("unvalid argument");                
                 size_t l = 0;
                 while(MainArg[++l] != '.')
                     if(MainArg[l] > 57 || MainArg[l] < 48)
-                    {
-                        std::cout << "had ra9m khari : error4     " << MainArg[l] << std::endl;// debug // --------------------
-                        exit(-1);
-                    }
-                std::cout << MainArg[l] << std::endl;// debug // --------------------
+                        throw std::runtime_error("unvalid argument");                
                 while(++l < MainArg.length() - 1)
                     if(MainArg[l] > 57 || MainArg[l] < 48)
-                    {
-                        std::cout << "had ra9m khari : error5     " << MainArg[l] << std::endl;// debug // --------------------
-                        exit(-1);
-                    }
-                if(MainArg[l] == 'f')
-                    std::cout << "3ndk float a 7abibi" << std::endl;
+                        throw std::runtime_error("unvalid argument");                
+                if(MainArg[l] == 'f' && MainArg[l - 1] == '.')
+                    throw std::runtime_error("unvalid argument");                
+                else if(MainArg[l] == 'f')
+                    type = "float";
                 else if(MainArg[l] > 57 || MainArg[l] < 48)
-                        std::cout << "had ra9m khari : error6     " << MainArg[l] << std::endl;// debug // --------------------
+                    throw std::runtime_error("unvalid argument");                
                 else
-                    std::cout << "3ndk double a 7abibi" << std::endl;
-
+                    type = "double";
             }
             
         }
+    }
+
 }
 
+std::string ScalarConverter::getType() const
+{
+    return type;   
+}
+std::string ScalarConverter::getMainArg() const
+{
+    return MainArg;   
+}
+
+double ScalarConverter::getData() const
+{
+    return data;   
+}
+
+void ScalarConverter::StoreDouble()
+{
+    std::stringstream buffer;
+    char c = MainArg[0];
+
+    if(type == "char")
+        data = c;
+    else if(type == "float" || type == "double" || type == "int" || type == "floatW" || type == "doubleW")
+    {
+        buffer << getMainArg().c_str();
+        if(buffer.fail())
+            throw std::runtime_error("unvalid argument");
+        buffer >> data;
+    }
+}
+
+
+std::ostream & operator<<(std::ostream & output, ScalarConverter& Obj)
+{
+    // char 
 }

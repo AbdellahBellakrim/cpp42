@@ -6,7 +6,7 @@
 #    By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/08 06:49:06 by abellakr          #+#    #+#              #
-#    Updated: 2023/04/08 06:50:45 by abellakr         ###   ########.fr        #
+#    Updated: 2023/04/08 14:39:39 by abellakr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 NAME = convert
 CC = c++
-SRCS = ./main.cpp ./MyCast.cpp
+SRCS = ./main.cpp ./ScalarConverter.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 	

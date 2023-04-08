@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MyCast.hpp                                         :+:      :+:    :+:   */
+/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/07 18:24:09 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/07 22:14:03 by abellakr         ###   ########.fr       */
+/*   Created: 2023/04/08 14:39:26 by abellakr          #+#    #+#             */
+/*   Updated: 2023/04/08 14:40:14 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MYCAST_HPP
-#define MYCAST_HPP
+#ifndef SCALARCONVERTER_HPP
+#define SCALARCONVERTER_HPP
     
 #include <iostream>
+#include <sstream>
 
 class  ScalarConverter
 {
@@ -25,7 +26,11 @@ class  ScalarConverter
         // constractor parametrized
         ScalarConverter(std::string arg);  
         
+        std::string getType()const;
+        std::string getMainArg()const;
+        double getData()const;
         void convert(std::string obj);
+        void StoreDouble();
 
         void parse(void);
         
@@ -37,5 +42,9 @@ class  ScalarConverter
         
 };
 
+std::ostream & operator<< (std::ostream & output, ScalarConverter& Obj);
 
 #endif
+
+
+// smit class f smit fishier
