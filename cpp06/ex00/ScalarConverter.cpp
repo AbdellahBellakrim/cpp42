@@ -6,11 +6,15 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 15:03:51 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/08 16:11:23 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/08 16:53:50 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+
+std::string ScalarConverter::MainArg = "";
+std::string ScalarConverter::type = "";
+double ScalarConverter::data = 0;
 
 ScalarConverter::ScalarConverter() // constractor
 {
@@ -132,16 +136,16 @@ void ScalarConverter::parse()
 
 }
 
-std::string ScalarConverter::getType() const
+std::string ScalarConverter::getType()
 {
     return type;   
 }
-std::string ScalarConverter::getMainArg() const
+std::string ScalarConverter::getMainArg()
 {
     return MainArg;   
 }
 
-double ScalarConverter::getData() const
+double ScalarConverter::getData()
 {
     return data;   
 }
