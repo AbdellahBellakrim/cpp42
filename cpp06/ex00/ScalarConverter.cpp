@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MyCast.cpp                                         :+:      :+:    :+:   */
+/*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/07 18:30:04 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/08 14:40:53 by abellakr         ###   ########.fr       */
+/*   Created: 2023/04/08 15:03:51 by abellakr          #+#    #+#             */
+/*   Updated: 2023/04/08 16:11:23 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,11 @@ void ScalarConverter::parse()
         if(dots == 0) // we have char or int or error
         {
             // check if it is char
-            if(MainArg.length() == 1 && MainArg[0] != '\t' && MainArg[0] != '\v' && MainArg[0] != '\n' && MainArg[0] != '\r' && MainArg[0] != '\f' && MainArg[0] != ' ')
+            if(MainArg.length() == 1 && MainArg[0] > 32)
                 type = "char";
-            else if(MainArg.length() == 1 && (MainArg[0] == '\t' || MainArg[0] == '\v' || MainArg[0] == '\n' || MainArg[0] == '\r' || MainArg[0] == '\f' || MainArg[0] == ' '))
+            if(MainArg.length() == 1 && (MainArg[0] >= 48 && MainArg[0] <= 57))
+                type = "int";
+            else if(MainArg.length() == 1 && MainArg[0] <= 32)
                 throw std::runtime_error("unvalid argument");                
             // check if it is int 
             else if(MainArg.length() > 1)
@@ -115,7 +117,10 @@ void ScalarConverter::parse()
                 if(MainArg[l] == 'f' && MainArg[l - 1] == '.')
                     throw std::runtime_error("unvalid argument");                
                 else if(MainArg[l] == 'f')
+                {
+                    MainArg.erase(MainArg.length() - 1);
                     type = "float";
+                }
                 else if(MainArg[l] > 57 || MainArg[l] < 48)
                     throw std::runtime_error("unvalid argument");                
                 else
@@ -160,5 +165,41 @@ void ScalarConverter::StoreDouble()
 
 std::ostream & operator<<(std::ostream & output, ScalarConverter& Obj)
 {
-    // char 
+    // char
+    if(Obj.getType() == "floatW" || Obj.getType() == "doubleW")
+        output << "char : " << "impossible" << std::endl;
+    else
+    {
+        if(Obj.getData() <= 32)
+            output << "char : " << "Non displayable" << std::endl;
+        else 
+            output << "char : " << "'" << static_cast <char>(Obj.getData()) << "'" << std::endl;
+    }    
+    // int 
+    if(Obj.getType() == "floatW" || Obj.getType() == "doubleW")
+        output << "int : " << "impossible" << std::endl;
+    else
+    {
+        if(Obj.getData() < INT_MIN || Obj.getData() > INT_MAX)
+            output << "int : " << "impossible" << std::endl;
+        else 
+            output << "int : " << static_cast <int>(Obj.getData()) << std::endl;        
+    }
+    output << std::setprecision(5) << std::fixed;
+    // float
+    if(Obj.getType() == "floatW" || Obj.getType() == "doubleW")
+        output << "float : " << Obj.getData() << "f" << std::endl;
+    else
+    {
+        if(floor(Obj.getData()) < INT_MIN || floor(Obj.getData()) > INT_MAX)
+            output << "float : " << "impossible" << std::endl;
+        else 
+            output << "float : "  <<static_cast <float>(Obj.getData()) << "f" << std::endl;        
+    }
+    // double
+    if(Obj.getType() == "floatW" || Obj.getType() == "doubleW")
+        output << "double : " << Obj.getData() << std::endl;
+    else 
+        output << "double : " << static_cast <double>(Obj.getData()) << std::endl;        
+    return output;
 }

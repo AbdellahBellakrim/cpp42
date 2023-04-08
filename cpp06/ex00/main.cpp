@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 18:23:08 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/08 14:40:47 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/08 16:00:01 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int main(int ac, char **av)
             ScalarConverter myObj = ScalarConverter(av[1]);
             myObj.parse();
             myObj.StoreDouble();
-            std::cout << myObj.getMainArg() << " :  " << myObj.getType() << "  : " << myObj.getData() <<std::endl; // debug
+            // std::cout << myObj.getMainArg() << " :  " << myObj.getType() << "  : " << myObj.getData() <<std::endl; // debug
+            std::cout << myObj;
             
         }
         catch(std::exception &e)

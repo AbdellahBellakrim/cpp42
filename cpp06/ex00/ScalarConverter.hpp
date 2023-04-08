@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 14:39:26 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/08 14:40:14 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/08 15:53:49 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
     
 #include <iostream>
 #include <sstream>
+#include <limits.h>
+#include <math.h>
+#include <iomanip>
 
 class  ScalarConverter
 {
@@ -29,11 +32,10 @@ class  ScalarConverter
         std::string getType()const;
         std::string getMainArg()const;
         double getData()const;
-        void convert(std::string obj);
-        void StoreDouble();
-
-        void parse(void);
         
+        void parse(void);
+        void convert(std::string obj);
+        void StoreDouble();        
 
     private:
         std::string MainArg;
