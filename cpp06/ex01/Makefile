@@ -5,16 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/04/08 06:49:06 by abellakr          #+#    #+#              #
-#    Updated: 2023/04/08 17:55:51 by abellakr         ###   ########.fr        #
+#    Created: 2023/04/08 17:44:30 by abellakr          #+#    #+#              #
+#    Updated: 2023/04/08 17:56:49 by abellakr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 
-NAME = convert
+NAME = serialize
 CC = c++
-SRCS = ./main.cpp ./ScalarConverter.cpp
+SRCS = ./main.cpp ./Serialize.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 	
