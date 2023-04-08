@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 15:03:51 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/08 16:53:50 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/08 17:00:33 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,6 +176,8 @@ std::ostream & operator<<(std::ostream & output, ScalarConverter& Obj)
     {
         if(Obj.getData() <= 32)
             output << "char : " << "Non displayable" << std::endl;
+        else if(Obj.getData() > 256)
+            output << "char : " << "impossible" << std::endl;
         else 
             output << "char : " << "'" << static_cast <char>(Obj.getData()) << "'" << std::endl;
     }    
