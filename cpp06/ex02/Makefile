@@ -6,13 +6,13 @@
 #    By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/08 18:47:46 by abellakr          #+#    #+#              #
-#    Updated: 2023/04/08 20:50:49 by abellakr         ###   ########.fr        #
+#    Updated: 2023/04/09 12:37:30 by abellakr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 
-NAME = serialize
+NAME = realtype
 CC = c++
 SRCS = ./main.cpp
 

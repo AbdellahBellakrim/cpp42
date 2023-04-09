@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 15:03:51 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/08 17:11:06 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/09 12:35:57 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,7 +191,7 @@ std::ostream & operator<<(std::ostream & output, ScalarConverter& Obj)
         else 
             output << "int : " << static_cast <int>(Obj.getData()) << std::endl;        
     }
-    output << std::setprecision(5) << std::fixed;
+    output << std::setprecision(3) << std::fixed;
     // float
     if(Obj.getType() == "floatW" || Obj.getType() == "doubleW")
         output << "float : " << Obj.getData() << "f" << std::endl;
