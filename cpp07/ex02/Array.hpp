@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 20:34:07 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/09 21:57:35 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/09 22:43:40 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,26 +43,30 @@ class Array
 
         Array(const Array& newObj)
         {
-            if(*this != newObj)
-                this = newObj;
-            return this;
+            if(this != &newObj)
+            {
+                this->tmp = NULL;
+                *this = newObj;
+                
+            }
         }
         
         Array& operator=(const Array& newObj)
         {
-            if(newObj != *this)
+            if(&newObj != this)
             {
+                tmpsize = newObj.tmpsize;
                 if(tmp)
                     delete [] tmp;
                 tmp = new T[newObj.tmpsize];
-                for(int i = 0; i < tmpsize ; i++)
+                for(unsigned int i = 0; i < newObj.tmpsize ; i++)
                    tmp[i] = newObj.tmp[i];
             }
-            return this;
+            return *this;
         }
         T& operator[](unsigned int index)
         {
-            if(index > tmpsize)
+            if(index >= tmpsize)
                 throw std::runtime_error("invalid index");                
             return tmp[index];  
         }
