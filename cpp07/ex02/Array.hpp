@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 20:34:07 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/09 22:43:40 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/10 02:43:50 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ class Array
             }
             return *this;
         }
-        T& operator[](unsigned int index)
+        T& operator[](unsigned int index) const
         {
             if(index >= tmpsize)
                 throw std::runtime_error("invalid index");                
