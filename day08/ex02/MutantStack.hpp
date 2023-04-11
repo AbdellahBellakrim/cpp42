@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 23:51:55 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/11 00:50:51 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/11 05:29:54 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,28 +35,29 @@ class MutantStack : public std::stack<T, Container>
         // copy constractor
         MutantStack(const MutantStack& Obj)
         {
-            (void)Obj;
+            *this = Obj;
         }
         // = overload
         MutantStack& operator=(const MutantStack& Obj)
         {
-            (void)Obj;
+            this->c = Obj.c;
             return *this;
         }
+      
+        typedef typename Container::iterator iterator;
 
         // begin overload
-       typename MutantStack::container_type::iterator   begin()
+       iterator   begin()
        {
             return MutantStack::c.begin();
        }
        
         // end overload
-       typename MutantStack::container_type::iterator   end()
+       iterator   end()
        {
             return MutantStack::c.end();
        }
        // iterator
-      typedef typename Container::iterator iterator;
 };
 #endif
 
