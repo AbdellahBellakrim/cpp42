@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 20:11:49 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/13 12:42:08 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/13 21:07:29 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,12 +130,14 @@ void BitcoinExchange::checkValueValidity(std::string ValueFormat)
         if((ValueFormat[i] < 48 || ValueFormat[i] > 57) && ValueFormat[i] != '.')
             throw std::invalid_argument("Error : bad input =>" + ValueFormat);
         if(ValueFormat[i] == '.')
+        {
+            if(!ValueFormat[i + 1] || (i == 0 && ValueFormat[i] == '.'))
+                throw std::invalid_argument("Error : bad input =>" + ValueFormat);
             dots++;
+        }
     }
-    if(dots > 1)
+    if(dots > 1 || ValueFormat.length() == 0)
         throw std::invalid_argument("Error : bad input =>" + ValueFormat);
-
-
     // std::cout << "'" <<ValueFormat << "'" << " | " << d<< std::endl; // dubug
 }
 
@@ -157,7 +159,26 @@ void BitcoinExchange::checkDateValidity(std::string TimeFormat)
             throw std::invalid_argument("Error: bad input => " + TimeFormat);            
     }
     // check if date is exist 
-    std::cout << "'" <<TimeFormat << "'" << std::endl; // dubug
+    isDate(1900 + var.tm_year, var.tm_mon + 1, var.tm_mday, TimeFormat);
+    
+    std::cout << "'" <<TimeFormat << "'"<< " | "<< 1900 + var.tm_year<< " " << var.tm_mon + 1 <<" "<< var.tm_mday << std::endl; // dubug
          
 }
 
+bool    isLeap (int year)
+{
+    if ((year % 4 == 0) || ((year % 100 == 0) && (year % 400 == 0)))
+        return true;
+    return false;
+}
+
+void BitcoinExchange::isDate(int year, int month, int day, std::string timeFormat)
+{
+    if(month == 2 && day > 28 && !isLeap(year))
+        throw std::invalid_argument("Error: bad input => " + timeFormat);
+    if(month % 2 == 0 && day > 30 && month < 8)
+        throw std::invalid_argument("Error: bad input => " + timeFormat);
+    if(month % 2 != 0 && day > 30 && month >= 8)
+        throw std::invalid_argument("Error: bad input => " + timeFormat);
+    
+}

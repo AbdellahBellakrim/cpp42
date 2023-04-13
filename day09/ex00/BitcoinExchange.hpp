@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 20:11:51 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/13 11:58:25 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/13 20:39:50 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ class BitcoinExchange
         void DataCollect(std::string filename);
         void checkDateValidity(std::string TimeFomat);
         void checkValueValidity(std::string ValueFomat);
+        void isDate(int year, int month, int day, std::string timeformat);
         /// match data function
             
     private : 
