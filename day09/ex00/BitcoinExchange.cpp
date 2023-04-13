@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 20:11:49 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/13 22:21:02 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/13 22:42:03 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void BitcoinExchange::DataCollect(std::string filename)
                     std::map<std::string, double>::iterator lower = DataBase.lower_bound(str.substr(0, idx));
                     if(lower->first != str.substr(0, idx) && lower != DataBase.begin())
                         lower--;
-                    std::cout << lower->first << " => " << str.substr(idx  + 3, (str.length() - idx -1)) << " = "<< std::atof(str.substr(idx  + 3, (str.length() - idx -1)).c_str()) * lower->second <<  std::endl;
+                    std::cout << str.substr(0, idx) << " => " << str.substr(idx  + 3, (str.length() - idx -1)) << " = "<< std::atof(str.substr(idx  + 3, (str.length() - idx -1)).c_str()) * lower->second <<  std::endl;
                         
                 }
             }
