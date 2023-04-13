@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 20:11:49 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/13 21:07:29 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/13 22:21:02 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,11 @@ void BitcoinExchange::DataCollect(std::string filename)
                     // check valid value 
                     checkValueValidity(str.substr(idx  + 3, (str.length() - idx -1)));
                     // go and check in data for exchange
-                    // std::cout << "'" <<str.substr(0, idx) << "'     '" << str.substr(idx  + 3, (str.length() - idx -1)) << "'" << std::endl; // debug
+                    std::map<std::string, double>::iterator lower = DataBase.lower_bound(str.substr(0, idx));
+                    if(lower->first != str.substr(0, idx) && lower != DataBase.begin())
+                        lower--;
+                    std::cout << lower->first << " => " << str.substr(idx  + 3, (str.length() - idx -1)) << " = "<< std::atof(str.substr(idx  + 3, (str.length() - idx -1)).c_str()) * lower->second <<  std::endl;
+                        
                 }
             }
             catch(std::exception &e)
@@ -138,7 +142,6 @@ void BitcoinExchange::checkValueValidity(std::string ValueFormat)
     }
     if(dots > 1 || ValueFormat.length() == 0)
         throw std::invalid_argument("Error : bad input =>" + ValueFormat);
-    // std::cout << "'" <<ValueFormat << "'" << " | " << d<< std::endl; // dubug
 }
 
 void BitcoinExchange::checkDateValidity(std::string TimeFormat)
@@ -159,10 +162,7 @@ void BitcoinExchange::checkDateValidity(std::string TimeFormat)
             throw std::invalid_argument("Error: bad input => " + TimeFormat);            
     }
     // check if date is exist 
-    isDate(1900 + var.tm_year, var.tm_mon + 1, var.tm_mday, TimeFormat);
-    
-    std::cout << "'" <<TimeFormat << "'"<< " | "<< 1900 + var.tm_year<< " " << var.tm_mon + 1 <<" "<< var.tm_mday << std::endl; // dubug
-         
+    isDate(1900 + var.tm_year, var.tm_mon + 1, var.tm_mday, TimeFormat);         
 }
 
 bool    isLeap (int year)
