@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 06:04:29 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/14 08:33:04 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/14 08:57:32 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ RPN::RPN(std::string arg)
     int result;
     args = arg;
     
+    if(args.length() == 1 && std::isdigit(args[0]))
+    {
+        std::cout << args[0] << std::endl;    
+        exit(0);
+    }
     for(size_t i = 0; i < args.length() ; i++)
     {
         if(std::isdigit(args[i]))
