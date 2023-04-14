@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 20:11:49 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/13 22:42:03 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/14 05:07:48 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,11 @@ void BitcoinExchange::DataCollect(std::string filename)
             i++;
             try{                
                 if(i == 0 && str != "date | value")
-                    throw std::invalid_argument("file format not supported.");
+                {
+                    std::cout << "file format not supported." << std::endl;
+                    exit(EXIT_FAILURE);
+                    // throw std::invalid_argument("file format not supported.");
+                }
                 else if(i > 0)
                 {
                     size_t idx = str.find(" | ", 0);
@@ -115,7 +119,12 @@ void BitcoinExchange::DataCollect(std::string filename)
                 std::cout << e.what() << std::endl;
                 continue;
             }
-        }        
+        }
+        if(i == -1)   
+        {
+            std::cout << "file format not supported." << std::endl;
+                exit(EXIT_FAILURE);
+        }   
     }
     else 
         throw std::invalid_argument("Error: could not open file.");
