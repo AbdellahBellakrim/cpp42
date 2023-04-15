@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 10:01:22 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/15 00:15:07 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/15 05:22:40 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include<string>
 #include <vector>
 #include <deque>
+#include <sys/time.h>
 
 
 
@@ -56,6 +57,14 @@ class DequeData
         ~DequeData();
         DequeData(const DequeData& Obj);
         DequeData& operator=(const DequeData& Obj);
+
+        DequeData(char **arguments, int ac);
+        // sort algos
+        void InsertionSort(std::deque<int> &data);
+        std::deque<int> MergeSort(std::deque<int> data);
+        std::deque<int> Merge(std::deque<int> v1, std::deque<int> v2);
+    private:
+        std::deque<int> data;
 };
 
 
@@ -64,5 +73,8 @@ class DequeData
 
 void check_arguments(int ac , char **av);
 bool isAllDigits(std::string str);
+void after(std::vector<int> arr);
+void before(std::vector<int> arr);
+long	ft_gettime(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 06:04:29 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/14 08:57:32 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/15 21:46:58 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ RPN::RPN(std::string arg)
             throw std::runtime_error("Error");   
     }
     if(stack.size() != 1)
-        throw std::runtime_error("Error");   
+        throw std::runtime_error("Error"); 
+    result = stack.top();
+    stack.pop();  
     std::cout << result << std::endl;
 }

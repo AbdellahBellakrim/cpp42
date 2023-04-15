@@ -6,7 +6,7 @@
 /*   By: abellakr <abellakr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 10:09:20 by abellakr          #+#    #+#             */
-/*   Updated: 2023/04/14 11:17:05 by abellakr         ###   ########.fr       */
+/*   Updated: 2023/04/15 04:44:24 by abellakr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int main(int ac, char **av)
             throw std::runtime_error("Error");
         check_arguments(ac, av);
         VectorData A(av, ac);
+        DequeData B(av, ac);
         
         
     }
