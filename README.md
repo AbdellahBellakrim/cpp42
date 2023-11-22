@@ -22,7 +22,7 @@ To get started with the exercises, follow these steps:
 
 1. Ensure that you have a C++ development environment set up on your machine. If you don't have one already, you can install a compiler such as GCC or Clang, along with an integrated development environment (IDE) like Visual Studio Code or Code::Blocks.
 
-2. Clone this repository to your local machine using the following command: git clone git@github.com:AbdellahBellakrim/cpp42.git
+2. Clone this repository to your local machine using the following command: "git clone git@github.com:AbdellahBellakrim/cpp42.git"
 
 3.  Navigate to the cloned repository and explore the exercise categories that interest you the most. Each exercise is contained within its own directory and is accompanied by a detailed README file explaining the requirements and providing any necessary instructions.
 
