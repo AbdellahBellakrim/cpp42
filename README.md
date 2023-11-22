@@ -24,7 +24,7 @@ To get started with the exercises, follow these steps:
 
 2. Clone this repository to your local machine using the following command: ```git clone git@github.com:AbdellahBellakrim/cpp42.git```
 
-3.  Navigate to the cloned repository and explore the exercise categories that interest you the most. Each exercise is contained within its own directory and is accompanied by a detailed README file explaining the requirements and providing any necessary instructions.
+3.  Navigate to the cloned repository and explore the exercise categories that interest you the most. Each exercise is contained within its own directory and is accompanied by a detailed subjet file explaining the requirements and providing any necessary instructions.
 
 4. Choose an exercise, open the corresponding directory, and start working on the provided code. Feel free to modify and experiment with the code to deepen your understanding.
 
